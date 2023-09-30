@@ -22,69 +22,69 @@ public class accelerometer : MonoBehaviour
     void Update()
     {
         x.text = Input.acceleration.x.ToString();
-        // Кодируем сообщение в байты
+        // ГЉГ®Г¤ГЁГ°ГіГҐГ¬ Г±Г®Г®ГЎГ№ГҐГ­ГЁГҐ Гў ГЎГ Г©ГІГ»
         string message = Input.acceleration.x.ToString() + " ";
         byte[] data = Encoding.UTF8.GetBytes(message);
 
-        // Отправляем данные на сервер
+        // ГЋГІГЇГ°Г ГўГ«ГїГҐГ¬ Г¤Г Г­Г­Г»ГҐ Г­Г  Г±ГҐГ°ГўГҐГ°
         stream.Write(data, 0, data.Length);
     }
 
     public void click_start()
     {
-        IPAddress serverIP = IPAddress.Parse("192.168.14.132");
+        IPAddress serverIP = IPAddress.Parse("");
         int serverPort = 555;
 
-        // Создаем TCP-сокет
+        // Г‘Г®Г§Г¤Г ГҐГ¬ TCP-Г±Г®ГЄГҐГІ
         client = new TcpClient();
 
-        // Подключаемся к серверу
+        // ГЏГ®Г¤ГЄГ«ГѕГ·Г ГҐГ¬Г±Гї ГЄ Г±ГҐГ°ГўГҐГ°Гі
         client.Connect(serverIP, serverPort);
 
-        // Получаем поток для отправки данных
+        // ГЏГ®Г«ГіГ·Г ГҐГ¬ ГЇГ®ГІГ®ГЄ Г¤Г«Гї Г®ГІГЇГ°Г ГўГЄГЁ Г¤Г Г­Г­Г»Гµ
         stream = client.GetStream();
     }
 
     public void click_stop()
     {
-        // Закрываем соединение
+        // Г‡Г ГЄГ°Г»ГўГ ГҐГ¬ Г±Г®ГҐГ¤ГЁГ­ГҐГ­ГЁГҐ
         stream.Close();
         client.Close();
     }
     public void click_gas()
     {
-        // Кодируем сообщение в байты
+        // ГЉГ®Г¤ГЁГ°ГіГҐГ¬ Г±Г®Г®ГЎГ№ГҐГ­ГЁГҐ Гў ГЎГ Г©ГІГ»
         string message = "gas ";
         byte[] data = Encoding.UTF8.GetBytes(message);
 
-        // Отправляем данные на сервер
+        // ГЋГІГЇГ°Г ГўГ«ГїГҐГ¬ Г¤Г Г­Г­Г»ГҐ Г­Г  Г±ГҐГ°ГўГҐГ°
         stream.Write(data, 0, data.Length);
     }
     public void oclick_gas()
     {
-        // Кодируем сообщение в байты
+        // ГЉГ®Г¤ГЁГ°ГіГҐГ¬ Г±Г®Г®ГЎГ№ГҐГ­ГЁГҐ Гў ГЎГ Г©ГІГ»
         string message = "-gas ";
         byte[] data = Encoding.UTF8.GetBytes(message);
 
-        // Отправляем данные на сервер
+        // ГЋГІГЇГ°Г ГўГ«ГїГҐГ¬ Г¤Г Г­Г­Г»ГҐ Г­Г  Г±ГҐГ°ГўГҐГ°
         stream.Write(data, 0, data.Length);
     }
     public void click_drag()
     {
-        // Кодируем сообщение в байты
+        // ГЉГ®Г¤ГЁГ°ГіГҐГ¬ Г±Г®Г®ГЎГ№ГҐГ­ГЁГҐ Гў ГЎГ Г©ГІГ»
         string message = "drag ";
         byte[] data = Encoding.UTF8.GetBytes(message);
 
-        // Отправляем данные на сервер
+        // ГЋГІГЇГ°Г ГўГ«ГїГҐГ¬ Г¤Г Г­Г­Г»ГҐ Г­Г  Г±ГҐГ°ГўГҐГ°
         stream.Write(data, 0, data.Length);
     }
     public void oclick_drag()
     {
-        // Кодируем сообщение в байты
+        // ГЉГ®Г¤ГЁГ°ГіГҐГ¬ Г±Г®Г®ГЎГ№ГҐГ­ГЁГҐ Гў ГЎГ Г©ГІГ»
         string message = "-drag ";
         byte[] data = Encoding.UTF8.GetBytes(message);
 
-        // Отправляем данные на сервер
+        // ГЋГІГЇГ°Г ГўГ«ГїГҐГ¬ Г¤Г Г­Г­Г»ГҐ Г­Г  Г±ГҐГ°ГўГҐГ°
         stream.Write(data, 0, data.Length);
     }
 }
